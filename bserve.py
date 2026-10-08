@@ -9,7 +9,11 @@ import sys
 import socket
 import mimetypes
 import traceback
+import functools
 from pathlib import Path
+
+# Ensure all server logs flush to terminal instantly
+print = functools.partial(print, flush=True)
 from bproto import (
     FRAME_HEADER_SIZE,
     FRAME_TYPE_REQ,
